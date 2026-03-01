@@ -1,0 +1,20 @@
+// ============================================================================
+// Resistor
+// ============================================================================
+
+`include "disciplines.vams"
+
+module resistor(p, n);
+
+        inout p, n;
+        electrical p,n; //For analog nature
+        
+        parameter real r=1k;
+        
+        analog // analog engine for Verilog AMS ( Verilog + VerilogA)
+        	begin
+        	
+        		V(p,n) <+ r*I(p,n); // Ohms law
+        	
+    		end
+endmodule
